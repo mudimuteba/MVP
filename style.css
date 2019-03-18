@@ -1,0 +1,27 @@
+
+#board{
+  width:680px;
+	height:680px;
+	background:#fff;
+  border-radius:10px;
+	border:#000 7px solid;
+	padding:20px;
+	margin: auto;
+}
+#board > div{
+	background: url(/home/recruit/umuzi_work/MVP/asian_guy_140.png) no-repeat;
+	border:#000 5px solid;
+	width:100px;
+	height:100px;
+	float:left;
+	margin:10px;
+	padding:20px;
+	font-size:64px;
+	cursor:pointer;
+	text-align:center;
+}
+#header{
+   text-align: center;
+   margin-top: 5px;
+   margin-bottom: 5px; 
+}
