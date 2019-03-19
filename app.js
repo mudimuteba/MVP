@@ -54,9 +54,9 @@ function flipper(tile,val){
 				    // Flip the 2 tiles back over
 				    var tile_1 = document.getElementById(tileIds[0]);
 				    var tile_2 = document.getElementById(tileIds[1]);
-				    tile_1.style.background = 'url(https://lh5.googleusercontent.com/vtMb8kt9QYQlfYVXCP0iouDt5qRkdFNrckMyUjvVpj9G9WTfhkvzSp8RZEbmpR5bBHAfC9SS0q1pbw=w1024-h616) no-repeat';
+				    tile_1.style.background = 'url(https://i.imgur.com/3mIrLAj.png) no-repeat';
             	    tile_1.innerHTML = "";
-				    tile_2.style.background = 'url(https://lh5.googleusercontent.com/vtMb8kt9QYQlfYVXCP0iouDt5qRkdFNrckMyUjvVpj9G9WTfhkvzSp8RZEbmpR5bBHAfC9SS0q1pbw=w1024-h616) no-repeat';
+				    tile_2.style.background = 'url(https://i.imgur.com/3mIrLAj.png) no-repeat';
             	    tile_2.innerHTML = "";
 				    // Clear both arrays
 				    memValues = [];
