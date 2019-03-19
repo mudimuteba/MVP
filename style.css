@@ -1,15 +1,10 @@
-
-#board{
-  width:680px;
-	height:680px;
-	background:#fff;
-  border-radius:10px;
-	border:#000 7px solid;
-	padding:20px;
-	margin: auto;
+#header{
+   text-align: center;
+   margin-top: 5px;
+   margin-bottom: 5px; 
 }
 #board > div{
-	background: url(/home/recruit/umuzi_work/MVP/asian_guy_140.png) no-repeat;
+  	background: url(https://lh3.google.com/u/0/d/14lTcxgGUdiEy0iBPRO81J37jpju3g9_T=w1024-h616-iv1) no-repeat;
 	border:#000 5px solid;
 	width:100px;
 	height:100px;
@@ -20,8 +15,13 @@
 	cursor:pointer;
 	text-align:center;
 }
-#header{
-   text-align: center;
-   margin-top: 5px;
-   margin-bottom: 5px; 
+
+#board{
+	background:#fff;
+  width:680px;
+	height:340px;
+  border-radius:10px;
+	border:#000 7px solid;
+	padding:20px;
+	margin: auto;
 }

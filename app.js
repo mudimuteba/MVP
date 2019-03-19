@@ -1,61 +1,70 @@
-var memory_array = ['壹','壹','貳','貳','叄','叄','肆','肆','陸','陸','柒','柒','捌','捌','玖','玖'];
-var memory_values = [];
-var memory_tile_ids = [];
-var tiles_flipped = 0;
-Array.prototype.memory_tile_shuffle = function(){
-    var i = this.length, j, temp;
-    while(--i > 0){
-        j = Math.floor(Math.random() * (i+1));
-        temp = this[j];
-        this[j] = this[i];
-        this[i] = temp;
-    }
-}
-function newBoard(){
+let orgArr = ['壹','壹','貳','貳','叄','叄','肆','肆'];
+let memValues = [];
+let tileIds = [];
+
+let arrayShuffle = function(arr) {
+    let newPos, temp;
+
+    for(let i = arr.length - 1; i > 0; i--) {
+        newPos = Math.floor(Math.random() * (i+1));
+        temp = arr[i];
+        arr[i] = arr[newPos];
+        arr[newPos] = temp;
+        }
+        return arr;
+};
+
+// let newArray = arrayShuffle(arry);
+// console.log(newArray);
+
+function makeBoard(){
 	tiles_flipped = 0;
-	var output = '';
-    memory_array.memory_tile_shuffle();
-	for(var i = 0; i < memory_array.length; i++){
-		output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
+	let output = '';
+  arrayShuffle(orgArr);
+  //for(let i = orgArr.length; i > 0; i--)
+  for(let i = 0; i < orgArr.length; i++)
+  {
+		output += '<div id="tile_'+i+'" onclick="flipper(this,\''+orgArr[i]+'\')"></div>';
 	}
 	document.getElementById('board').innerHTML = output;
 }
-function memoryFlipTile(tile,val){
-	if(tile.innerHTML == "" && memory_values.length < 2){
+function flipper(tile,val){
+	if(tile.innerHTML == "" && memValues.length < 2){
 		tile.style.background = '#FFF';
 		tile.innerHTML = val;
-		if(memory_values.length == 0){
-			memory_values.push(val);
-			memory_tile_ids.push(tile.id);
-		} else if(memory_values.length == 1){
-			memory_values.push(val);
-			memory_tile_ids.push(tile.id);
-			if(memory_values[0] == memory_values[1]){
+		if(memValues.length == 0){
+			memValues.push(val);
+			tileIds.push(tile.id);
+		} else if(memValues.length == 1){
+			memValues.push(val);
+			tileIds.push(tile.id);
+			if(memValues[0] == memValues[1]){
 				tiles_flipped += 2;
 				// Clear both arrays
-				memory_values = [];
-            	memory_tile_ids = [];
+				memValues = [];
+        tileIds = [];
 				// Check to see if the whole board is cleared
 				if(tiles_flipped == memory_array.length){
 					alert("Board cleared... generating new board");
-					document.getElementById('board').innerHTML = "";
-					newBoard();
+					document.getElementById('memory_board').innerHTML= "";
+					makeBoard();
 				}
 			} else {
-				function flip2Back(){
+				function flipBack(){
 				    // Flip the 2 tiles back over
-				    var tile_1 = document.getElementById(memory_tile_ids[0]);
-				    var tile_2 = document.getElementById(memory_tile_ids[1]);
-				    tile_1.style.background = 'url(/home/recruit/umuzi_work/MVP/asian_guy_140.png) no-repeat';
+				    let tile_1 = document.getElementById(tileIds[0]);
+				    let tile_2 = document.getElementById(tileIds[1]);
+				    tile_1.style.background = 'url(https://lh3.google.com/u/0/d/14lTcxgGUdiEy0iBPRO81J37jpju3g9_T=w1024-h616-iv1) no-repeat';
             	    tile_1.innerHTML = "";
-				    tile_2.style.background = 'url(/home/recruit/umuzi_work/MVP/asian_guy_140.png) no-repeat';
+				    tile_2.style.background = 'url(https://lh3.google.com/u/0/d/14lTcxgGUdiEy0iBPRO81J37jpju3g9_T=w1024-h616-iv1) no-repeat';
             	    tile_2.innerHTML = "";
 				    // Clear both arrays
-				    memory_values = [];
-            	    memory_tile_ids = [];
+				    memValues = [];
+            	    tileIds = [];
 				}
-				setTimeout(flip2Back, 700);
+				setTimeout(flipBack, 700);
 			}
 		}
 	}
 }
+//makeBoard()
