@@ -46,7 +46,7 @@ function flipper(tile,val){
 				// Check to see if the whole board is cleared
 				if(tiles_flipped == memory_array.length){
 					alert("Board cleared... generating new board");
-					document.getElementById('memory_board').innerHTML= "";
+					document.getElementById('board').innerHTML= "";
 					makeBoard();
 				}
 			} else {
