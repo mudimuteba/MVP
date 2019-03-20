@@ -2,7 +2,7 @@ var orgArr = ['壹','壹','貳','貳','叄','叄','肆','肆'];
 var memValues = [];
 var tileIds = [];
 
-let arrayShuffle = function(arr) {
+let shuffler = function(arr) {
     let newPos, temp;
 
     for(let i = arr.length - 1; i > 0; i--) {
@@ -14,13 +14,13 @@ let arrayShuffle = function(arr) {
         return arr;
 };
 
-// let newArray = arrayShuffle(arry);
+// let newArray = shuffler(arry);
 // console.log(newArray);
 
-function makeBoard(){
+function startBoard(){
 	tiles_flipped = 0;
 	var output = '';
-  arrayShuffle(orgArr);
+  shuffler(orgArr);
   //for(var i = orgArr.length; i > 0; i--)
   for(let i = 0; i < orgArr.length; i++)
   {
@@ -40,30 +40,30 @@ function flipper(tile,val){
 			tileIds.push(tile.id);
 			if(memValues[0] == memValues[1]){
 				tiles_flipped += 2;
-				// Clear both arrays
 				memValues = [];
         tileIds = [];
-				// Check to see if the whole board is cleared
 				if(tiles_flipped == orgArr.length){
-				alert("Board cleared... generating new board");
-				document.getElementById('board').innerHTML = "";
-					makeBoard();
+
+				function resetGame(){
+				let output = '<h1>🥇<u>Congrats you have won | 你赢了</u>🏆</h1></br><button onclick="startBoard()">Load New Game...</button>';
+				return output
+				}
+				document.getElementById('board').innerHTML = resetGame();
 				}
 			} else {
 				function flipBack(){
-				    // Flip the 2 tiles back over
 				    var tile_1 = document.getElementById(tileIds[0]);
 				    var tile_2 = document.getElementById(tileIds[1]);
 				    tile_1.style.background = 'url(https://i.imgur.com/3mIrLAj.png) no-repeat';
             	    tile_1.innerHTML = "";
 				    tile_2.style.background = 'url(https://i.imgur.com/3mIrLAj.png) no-repeat';
             	    tile_2.innerHTML = "";
-				    // Clear both arrays
 				    memValues = [];
             	    tileIds = [];
 				}
-				setTimeout(flipBack, 700);
+				setTimeout(flipBack, 1400);
 			}
 		}
 	}
 }
+//window.onload = startBoard();
