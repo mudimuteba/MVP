@@ -41,7 +41,7 @@ function flipper(tile,val){
 			if(memValues[0] == memValues[1]){
 				tiles_flipped += 2;
 				memValues = [];
-        tileIds = [];
+        		tileIds = [];
 				if(tiles_flipped == orgArr.length){
 
 				function resetGame(){
