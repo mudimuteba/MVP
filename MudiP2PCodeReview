@@ -1,0 +1,17 @@
+I'd recommend un-nesting the if statements and function.
+I would also recommend using more contextual or "obvious" variable names that describe their contained values or use case.
+Here are some refactoring/optimization steps I took below and I've attached a file with some implementation.
+
+* renamed orgArr global variable to letters
+* renamed memValues global variable to pair
+
+tiles_flipped variable is never declared, yet it is assigned
+* declared tiles_flipped variable using let initialized it to 0
+
+There are 2 variables named output
+* initialized first output variable in starBoard() function as a let instead of var
+* renamed first output variable in starBoard() function to tileDiv 
+* deleted resetGame() function containing second output variable. resetGame() function is redundant so I just returned "Congrats" string literal at the end of the function.
+* renamed flipBack() function argument val to letter
+* moved flipBack() function out of flipper() function
+* refactored flipBack() function. Removed redundant assignments
